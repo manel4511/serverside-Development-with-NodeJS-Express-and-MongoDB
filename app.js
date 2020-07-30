@@ -1,3 +1,6 @@
+var dishRouter = require('./routes/dishRouter');
+var promotionRouter = require('./routes/promotionRouter');
+var leaderRouter = require('./routes/leaderRouter');
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -21,7 +24,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use('/dishes',dishRouter);
+app.use('/promotions',promotionRouter);
+app.use('/leaders',leaderRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
